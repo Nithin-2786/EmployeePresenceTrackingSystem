@@ -1,0 +1,15 @@
+.dashboard{
+    position: relative;
+    top:30px;
+    left:400px;
+    color:aquamarine;
+}
+.Users{
+    position: absolute;
+    top:60px;
+    left:500px;
+    color:rgb(12, 172, 156);
+}
+.container2{
+    margin-bottom: 50px;
+}
