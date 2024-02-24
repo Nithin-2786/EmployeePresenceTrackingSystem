@@ -3,9 +3,6 @@ import './AdminUsersPage.css'; // Add your CSS file
 
 function AdminUsersPage() {
   const [userLogs, setUserLogs] = useState([]);
-  function handleSubmit(){
-    
-  }
   useEffect(() => {
     const ws = new WebSocket('ws://localhost:3000'); 
 
@@ -18,7 +15,7 @@ function AdminUsersPage() {
     ws.onmessage = (event) => {
       console.log('Received message:', event.data);
       const data = JSON.parse(event.data);
-      if (data.action === 'checkIn' || data.action === 'checkOut') {
+      if (data.action === 'checkIn') {
         setUserLogs((prevLogs) => [...prevLogs, data]);
       }
       if(data.action==='previousData'){
@@ -43,9 +40,11 @@ function AdminUsersPage() {
         <thead>
           <tr>
             <th>Username</th>
+            <th>date</th>
             <th>Check-In Time</th>
             <th>Check-Out Time</th>
             <th>Active Time</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -55,6 +54,7 @@ function AdminUsersPage() {
     return (
       <tr key={index}>
         <td>{log.username}</td>
+        <td>{log.date}</td>
         <td>{log.checkIn}</td>
         <td>{log.checkOut}</td>
         <td>

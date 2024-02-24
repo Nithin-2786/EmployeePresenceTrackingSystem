@@ -17,6 +17,9 @@ function NavBar(props) {
     props.handleuserlogs()
      navigate('/userlogs')
    }
+   function handleUserProfile(){
+    navigate('/userlogs')
+   }
   return (
     <div id="nav-bar">
   <input id="nav-toggle" type="checkbox"/>
@@ -32,19 +35,13 @@ function NavBar(props) {
     <Link className="nav-button" to="/addDepartment" onClick={handledepartment}><i className="fas fa-images"></i><span>Add departments</span></Link>
     <Link className="nav-button" to="/userlogs" onClick={handleuserlogs}><i className="fas fa-images"></i><span>User Logs</span></Link>
     <hr/>
-    <div className="nav-button"><i className="fas fa-heart"></i><span>Following</span></div>
-    <div className="nav-button"><i className="fas fa-chart-line"></i><span>Trending</span></div>
-    <div className="nav-button"><i className="fas fa-fire"></i><span>Challenges</span></div>
-    <div className="nav-button"><i className="fas fa-magic"></i><span>Spark</span></div>
-    <hr/>
-    <div className="nav-button"><i className="fas fa-gem"></i><span>Codepen Pro</span></div>
-    <div id="nav-content-highlight"></div>
+    
   </div>
   <input id="nav-footer-toggle" type="checkbox"/>
   <div id="nav-footer">
     <div id="nav-footer-heading">
-      <div id="nav-footer-avatar"><img src="https://gravatar.com/avatar/4474ca42d303761c2901fa819c4f2547"/></div>
-      <div id="nav-footer-titlebox"><a id="nav-footer-title" href="https://codepen.io/uahnbu/pens/public" target="_blank">uahnbu</a><span id="nav-footer-subtitle">Admin</span></div>
+      <div id="nav-footer-avatar"><img src="https://www.forthvalleywelcome.org/wp-content/uploads/2022/08/Image_Unnamed_User.jpg"/></div>
+      <div id="nav-footer-titlebox"><Link id="nav-footer-title" to="/profile" onClick={handleUserProfile}>{props.username}</Link><span id="nav-footer-subtitle">{props.userRole}</span></div>
       <label for="nav-footer-toggle"><i className="fas fa-caret-up"></i></label>
     </div>
     <div id="nav-footer-content">

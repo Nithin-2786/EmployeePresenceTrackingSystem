@@ -40,7 +40,7 @@ const login = asyncHandler(async (req, res) => {
     console.log(req.body)
     const {username,password}=req.body;
     const user =await User.findOne({username})
-    if(user || (await bcrypt.compare(password,user.password))){
+    if(user && (await bcrypt.compare(password,user.password))){
         const accesstoken=jwt.sign(
         {
             user:{
@@ -51,9 +51,7 @@ const login = asyncHandler(async (req, res) => {
             }
         },
         process.env.ACCESSTOKENSECRET,
-        {
-            expiresIn:"15m"
-        })
+        )
 
         res.json({accesstoken})
     }

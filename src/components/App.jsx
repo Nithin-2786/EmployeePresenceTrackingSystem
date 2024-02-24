@@ -48,7 +48,7 @@ function App() {
             {islogin && (
                 <Router>
                 {userRole==='admin' ?  
-                    <NavBar handleDashboardClick={handleDashboardClick} handledep={handledep} handleuserlogs={handleuserlogs} /> 
+                    <NavBar handleDashboardClick={handleDashboardClick} handledep={handledep} handleuserlogs={handleuserlogs} username={username} userRole={userRole}/> 
                     : 
                     <NavBar2 handleDashboardClick={handleDashboardClick}/>
                 }
@@ -56,13 +56,14 @@ function App() {
                     {/* Main route for Dashboard, accessible for authenticated users */}
                     {userRole === 'admin' ? (
                         <>
-                            {showDashboard && <Route path="/dashboard" element={<Dashboard />} />}
+                            {showDashboard && <Route path="/dashboard" element={<Dashboard userRole={userRole} />} />}
                             {showadddepartment && <Route path="/addDepartment" element={<AddDepartmentForm />} />}
-                            {showuserlogs && <Route path="/userlogs" element={<AdminUsersPage/>}/>}
+                            {showuserlogs && <Route path="/userlogs" element={<AdminUsersPage userRole={userRole}/>}/>}
                         </>
                     ) : (
-                        <Route path="/dashboard" element={<UserDashboard userid={username}/>} />
+                        <Route path="/dashboard" element={<UserDashboard userid={username} userRole={userRole}/>} />
                     )}
+                    
                 </Routes>
             </Router>
             )}

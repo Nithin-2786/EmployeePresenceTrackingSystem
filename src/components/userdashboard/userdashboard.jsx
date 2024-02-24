@@ -34,7 +34,6 @@ const UserDashboard = (props) => {
   
   useEffect(() => {
     if (isCheckedIn) {
-      // Start timer when user checks in
       const interval = setInterval(() => {
         setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
       }, 1000);

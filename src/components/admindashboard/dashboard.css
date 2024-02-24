@@ -9,7 +9,20 @@
     top:60px;
     left:500px;
     color:rgb(12, 172, 156);
+ 
+    
 }
 .container2{
     margin-bottom: 50px;
+}
+
+.chart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px ;
+    position: absolute;
+    top:0px;
+    left: 405px;
 }
