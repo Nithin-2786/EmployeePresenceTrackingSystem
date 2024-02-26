@@ -50,7 +50,7 @@ function App() {
                 {userRole==='admin' ?  
                     <NavBar handleDashboardClick={handleDashboardClick} handledep={handledep} handleuserlogs={handleuserlogs} username={username} userRole={userRole}/> 
                     : 
-                    <NavBar2 handleDashboardClick={handleDashboardClick}/>
+                    <NavBar2 handleDashboardClick={handleDashboardClick} username={username} userRole={userRole}/>
                 }
                 <Routes>
                     {/* Main route for Dashboard, accessible for authenticated users */}

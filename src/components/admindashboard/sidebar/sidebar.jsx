@@ -35,6 +35,10 @@ function NavBar(props) {
     <Link className="nav-button" to="/addDepartment" onClick={handledepartment}><i className="fas fa-images"></i><span>Add departments</span></Link>
     <Link className="nav-button" to="/userlogs" onClick={handleuserlogs}><i className="fas fa-images"></i><span>User Logs</span></Link>
     <hr/>
+    <hr/>
+
+    <div className="nav-button"><i className="fas fa-gem"></i><span></span></div>
+    <div id="nav-content-highlight"></div>
     
   </div>
   <input id="nav-footer-toggle" type="checkbox"/>

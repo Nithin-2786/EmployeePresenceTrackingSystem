@@ -97,10 +97,11 @@ wss.on('connection', function connection(ws) {
             if (data.action === 'checkOut') {
                 const { username } = data;
                 const currentDate = new Date();
+                const formattedDate = currentDate.toLocaleDateString('en-GB');
                 const formattedTime = currentDate.toLocaleTimeString('en-US', { hour12: false });
                  
                 
-                cico.findOne({ username }).sort({ checkIn: -1 })
+                cico.findOne({ username , date:formattedDate }).sort({ checkIn: -1 })
                     .then(checkInRecord => {
                         if (!checkInRecord) {
                             ws.send(JSON.stringify({ action: 'checkOut', status: 'error', message: 'No check-in record found' }));

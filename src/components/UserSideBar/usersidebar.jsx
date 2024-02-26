@@ -27,18 +27,17 @@ function NavBar2(props) {
       <span>Dashboard</span>
     </Link> 
     <Link className="nav-button" to="/addDepartment" onClick={handledepartment}><i className="fas fa-images"></i><span>Add departments</span></Link>
-    <div className="nav-button"><i className="fas fa-thumbtack"></i><span>Pinned Items</span></div>
     <hr/>
  
     <hr/>
-    <div className="nav-button"><i className="fas fa-gem"></i><span>Codepen Pro</span></div>
+    <div className="nav-button"><i className="fas fa-gem"></i><span></span></div>
     <div id="nav-content-highlight"></div>
   </div>
   <input id="nav-footer-toggle" type="checkbox"/>
   <div id="nav-footer">
     <div id="nav-footer-heading">
-      <div id="nav-footer-avatar"><img /></div>
-      <div id="nav-footer-titlebox"><a id="nav-footer-title" target="_blank">uahnbu</a><span id="nav-footer-subtitle">User</span></div>
+      <div id="nav-footer-avatar"><img src="https://www.forthvalleywelcome.org/wp-content/uploads/2022/08/Image_Unnamed_User.jpg"/></div>
+      <div id="nav-footer-titlebox"><a id="nav-footer-title" target="_blank">{props.username}</a><span id="nav-footer-subtitle">{props.userRole}</span></div>
       <label for="nav-footer-toggle"><i className="fas fa-caret-up"></i></label>
     </div>
     <div id="nav-footer-content">
