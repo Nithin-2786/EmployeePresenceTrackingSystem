@@ -18,7 +18,7 @@ function NavBar(props) {
      navigate('/userlogs')
    }
    function handleUserProfile(){
-    navigate('/userlogs')
+    navigate('/Profile')
    }
   return (
     <div id="nav-bar">
@@ -45,7 +45,7 @@ function NavBar(props) {
   <div id="nav-footer">
     <div id="nav-footer-heading">
       <div id="nav-footer-avatar"><img src="https://www.forthvalleywelcome.org/wp-content/uploads/2022/08/Image_Unnamed_User.jpg"/></div>
-      <div id="nav-footer-titlebox"><Link id="nav-footer-title" to="/profile" onClick={handleUserProfile}>{props.username}</Link><span id="nav-footer-subtitle">{props.userRole}</span></div>
+      <div id="nav-footer-titlebox"><Link id="nav-footer-title" to="/Profile" onClick={handleUserProfile}>{props.username}</Link><span id="nav-footer-subtitle">{props.userRole}</span></div>
       <label for="nav-footer-toggle"><i className="fas fa-caret-up"></i></label>
     </div>
     <div id="nav-footer-content">

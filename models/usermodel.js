@@ -20,7 +20,11 @@ const userSchema = mongoose.Schema({
     userType:{
         type:String,
         
+    },
+    dob:{
+        type:String,
     }
+    
 }, 
 {
     timeStamps: true

@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route, Routes, useNavigate ,Link} from 'react-
 import UserDashboard from './userdashboard/userdashboard';
 import NavBar2 from './UserSideBar/usersidebar';
 import AdminUsersPage from './admindashboard/adminuserpage/adminuser';
+import Profile from './admindashboard/adminprofile/adminprofile';
+
 function App() {
     const [register, setRegister] = useState(false);
     const [islogin, setLogin] = useState(false);
@@ -63,7 +65,7 @@ function App() {
                     ) : (
                         <Route path="/dashboard" element={<UserDashboard userid={username} userRole={userRole}/>} />
                     )}
-                    
+                    <Route path="/Profile" element={< Profile username={username}/>}></Route>
                 </Routes>
             </Router>
             )}

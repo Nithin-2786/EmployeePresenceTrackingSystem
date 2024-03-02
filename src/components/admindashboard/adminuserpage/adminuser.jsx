@@ -19,7 +19,7 @@ function AdminUsersPage() {
         setUserLogs((prevLogs) => [...prevLogs, data]);
       }
       if(data.action==='previousData'){
-        setUserLogs(data.data); // Set user logs directly from the received data
+        setUserLogs(data.data); // Setting user logs directly from the received data
       }
     };
 

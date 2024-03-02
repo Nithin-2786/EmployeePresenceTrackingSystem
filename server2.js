@@ -24,7 +24,7 @@ wss.on('connection', function connection(ws) {
     const uuid=uuid4();
     console.log(uuid)
     connections[uuid]=connection;
-    ws.on('message', function incoming(message) {
+    ws.on('message', function  incoming(message) {
         console.log('Received: %s', message);
         try {
             const data = JSON.parse(message);
@@ -84,7 +84,7 @@ wss.on('connection', function connection(ws) {
                         
                         Object.keys(admins).forEach(uuid=>{
                             const connection =admins[uuid]
-                            connection.send(JSON.stringify({ action: 'checkIn', username, checkIn: formattedTime }));
+                            connection.send(JSON.stringify({ action: 'checkIn', username, checkIn: formattedTime ,date:formattedDate }));
                           })
                         ws.send(JSON.stringify({ action: 'checkIn', status: 'success'}));
                     })
@@ -132,6 +132,42 @@ wss.on('connection', function connection(ws) {
                     
                 })
             }
+            if(data.action==="getuserInfo"){
+                console.log(data)
+                const username=data.username
+                const userInfo=User.find({username}).then((userInfo)=>{
+                    console.log(userInfo)
+                    ws.send(JSON.stringify({action:"userInfo",userInfo}))
+                })
+                
+            }
+            if(data.action === "updateduserInfo") {
+                console.log(data);
+                const username = data.name;
+                let dob;
+                if (data.dob) {
+                    dob = data.dob.split('-').reverse().join('-');
+                }
+            
+                User.updateOne(
+                    { username },
+                    {
+                        $set: {
+                            username: data.name,
+                            department: data.department,
+                            dob: dob
+                        }
+                    }
+                )
+                .then(result => {
+                    console.log("Updation completed");
+                    ws.send(JSON.stringify({ action: "successful" })); 
+                })
+                .catch(err => {
+                    console.error("Error updating document:", err);
+                });
+            }
+            
             
         } catch (error) {
             console.error('Error parsing message:', error);

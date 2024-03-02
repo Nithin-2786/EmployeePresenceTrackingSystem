@@ -13,7 +13,9 @@ function NavBar2(props) {
    props.handledep()
     navigate('/addDepartment')
   }
-
+  function handleUserProfile(){
+    navigate('/Profile')
+   }
   return (
     <div id="nav-bar">
   <input id="nav-toggle" type="checkbox"/>
@@ -26,7 +28,6 @@ function NavBar2(props) {
       <i className="fas fa-palette"></i>
       <span>Dashboard</span>
     </Link> 
-    <Link className="nav-button" to="/addDepartment" onClick={handledepartment}><i className="fas fa-images"></i><span>Add departments</span></Link>
     <hr/>
  
     <hr/>
@@ -37,7 +38,7 @@ function NavBar2(props) {
   <div id="nav-footer">
     <div id="nav-footer-heading">
       <div id="nav-footer-avatar"><img src="https://www.forthvalleywelcome.org/wp-content/uploads/2022/08/Image_Unnamed_User.jpg"/></div>
-      <div id="nav-footer-titlebox"><a id="nav-footer-title" target="_blank">{props.username}</a><span id="nav-footer-subtitle">{props.userRole}</span></div>
+      <div id="nav-footer-titlebox"><Link id="nav-footer-title" to="/Profile" onClick={handleUserProfile}>{props.username}</Link><span id="nav-footer-subtitle">{props.userRole}</span></div>
       <label for="nav-footer-toggle"><i className="fas fa-caret-up"></i></label>
     </div>
     <div id="nav-footer-content">
