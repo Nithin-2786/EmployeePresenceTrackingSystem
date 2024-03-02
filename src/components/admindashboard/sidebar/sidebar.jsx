@@ -23,7 +23,7 @@ function NavBar(props) {
   return (
     <div id="nav-bar">
   <input id="nav-toggle" type="checkbox"/>
-  <div id="nav-header"><a id="nav-title" href="https://codepen.io" target="_blank">C<i className="fab fa-codepen"></i>DEPEN</a>
+  <div id="nav-header"><a id="nav-title" target="_blank">E.P.S</a>
     <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
     <hr/>
   </div>
