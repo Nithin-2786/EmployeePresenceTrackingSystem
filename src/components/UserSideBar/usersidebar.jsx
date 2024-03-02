@@ -19,7 +19,7 @@ function NavBar2(props) {
   return (
     <div id="nav-bar">
   <input id="nav-toggle" type="checkbox"/>
-  <div id="nav-header"><a id="nav-title" href="https://codepen.io" target="_blank"></a>
+  <div id="nav-header"><a id="nav-title" href="https://codepen.io" target="_blank">E.P.S</a>
     <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
     <hr/>
   </div>
